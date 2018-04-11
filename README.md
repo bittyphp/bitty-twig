@@ -35,7 +35,7 @@ $app->getContainer()->set('view', function () {
     return new Twig(dirname(__DIR__).'/templates/', $options);
 });
 
-$app->addRoute('GET', '/', function () {
+$app->get('/', function () {
     return $this->get('view')->renderResponse('index.twig', ['name' => 'Joe Schmoe']);
 });
 
