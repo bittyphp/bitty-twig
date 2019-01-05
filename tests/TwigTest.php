@@ -4,12 +4,12 @@ namespace Bitty\Tests\View;
 
 use Bitty\View\AbstractView;
 use Bitty\View\Twig;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use Twig_Environment;
 use Twig_ExtensionInterface;
 use Twig_Loader_Filesystem;
 
-class TwigTest extends PHPUnit_Framework_TestCase
+class TwigTest extends TestCase
 {
     /**
      * @var Twig
@@ -82,7 +82,7 @@ class TwigTest extends PHPUnit_Framework_TestCase
 
     public function testAddExtension()
     {
-        $extension = $this->getMock(Twig_ExtensionInterface::class);
+        $extension = $this->createMock(Twig_ExtensionInterface::class);
 
         $this->fixture->addExtension($extension);
 
