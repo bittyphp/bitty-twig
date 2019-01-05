@@ -16,7 +16,7 @@ class TwigTest extends TestCase
      */
     protected $fixture = null;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 
@@ -28,22 +28,22 @@ class TwigTest extends TestCase
         );
     }
 
-    public function testInstanceOf()
+    public function testInstanceOf(): void
     {
-        $this->assertInstanceOf(AbstractView::class, $this->fixture);
+        self::assertInstanceOf(AbstractView::class, $this->fixture);
     }
 
     /**
      * @dataProvider sampleRender
      */
-    public function testRender($template, $data, $expected)
+    public function testRender(string $template, array $data, string $expected): void
     {
         $actual = $this->fixture->render($template, $data);
 
-        $this->assertEquals($expected, $actual);
+        self::assertEquals($expected, $actual);
     }
 
-    public function sampleRender()
+    public function sampleRender(): array
     {
         $name = uniqid('name');
 
@@ -71,16 +71,16 @@ class TwigTest extends TestCase
         ];
     }
 
-    public function testRenderBlock()
+    public function testRenderBlock(): void
     {
         $name = uniqid('name');
 
         $actual = $this->fixture->renderBlock('test.html.twig', 'hello', ['name' => $name]);
 
-        $this->assertEquals('Hello, '.$name.PHP_EOL, $actual);
+        self::assertEquals('Hello, '.$name.PHP_EOL, $actual);
     }
 
-    public function testAddExtension()
+    public function testAddExtension(): void
     {
         $extension = $this->createMock(Twig_ExtensionInterface::class);
 
@@ -89,20 +89,20 @@ class TwigTest extends TestCase
         $actual = $this->fixture->getEnvironment()->getExtensions();
 
         $last = end($actual);
-        $this->assertSame($extension, $last);
+        self::assertSame($extension, $last);
     }
 
-    public function testGetLoader()
+    public function testGetLoader(): void
     {
         $actual = $this->fixture->getLoader();
 
-        $this->assertInstanceOf(Twig_Loader_Filesystem::class, $actual);
+        self::assertInstanceOf(Twig_Loader_Filesystem::class, $actual);
     }
 
-    public function testGetEnvironment()
+    public function testGetEnvironment(): void
     {
         $actual = $this->fixture->getEnvironment();
 
-        $this->assertInstanceOf(Twig_Environment::class, $actual);
+        self::assertInstanceOf(Twig_Environment::class, $actual);
     }
 }
