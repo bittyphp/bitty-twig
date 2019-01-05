@@ -51,7 +51,7 @@ class Twig extends AbstractView
     /**
      * {@inheritDoc}
      */
-    public function render($template, $data = [])
+    public function render(string $template, $data = []): string
     {
         return $this->environment->load($template)->render($data);
     }
@@ -65,7 +65,7 @@ class Twig extends AbstractView
      *
      * @return string
      */
-    public function renderBlock($template, $block, array $data = [])
+    public function renderBlock(string $template, string $block, array $data = []): string
     {
         return $this->environment->load($template)->renderBlock($block, $data);
     }
@@ -75,7 +75,7 @@ class Twig extends AbstractView
      *
      * @param Twig_ExtensionInterface $extension
      */
-    public function addExtension(Twig_ExtensionInterface $extension)
+    public function addExtension(Twig_ExtensionInterface $extension): void
     {
         $this->environment->addExtension($extension);
     }
@@ -87,7 +87,7 @@ class Twig extends AbstractView
      *
      * @return Twig_LoaderInterface
      */
-    public function getLoader()
+    public function getLoader(): Twig_LoaderInterface
     {
         return $this->loader;
     }
@@ -99,7 +99,7 @@ class Twig extends AbstractView
      *
      * @return Twig_Environment
      */
-    public function getEnvironment()
+    public function getEnvironment(): Twig_Environment
     {
         return $this->environment;
     }
