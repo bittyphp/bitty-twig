@@ -1,9 +1,9 @@
-# Bitty Twig
+# Twig View
 
-[![Build Status](https://travis-ci.org/bittyphp/bitty-twig.svg?branch=master)](https://travis-ci.org/bittyphp/bitty-twig)
-[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/c1ba5f9952b4438f9583d2da0dd19167)](https://www.codacy.com/app/bittyphp/bitty-twig)
-[![Total Downloads](https://poser.pugx.org/bittyphp/bitty-twig/downloads)](https://packagist.org/packages/bittyphp/bitty-twig)
-[![License](https://poser.pugx.org/bittyphp/bitty-twig/license)](https://packagist.org/packages/bittyphp/bitty-twig)
+[![Build Status](https://travis-ci.org/bittyphp/view-twig.svg?branch=master)](https://travis-ci.org/bittyphp/view-twig)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/c1ba5f9952b4438f9583d2da0dd19167)](https://www.codacy.com/app/bittyphp/view-twig)
+[![Total Downloads](https://poser.pugx.org/bittyphp/view-twig/downloads)](https://packagist.org/packages/bittyphp/view-twig)
+[![License](https://poser.pugx.org/bittyphp/view-twig/license)](https://packagist.org/packages/bittyphp/view-twig)
 
 A [Twig](https://twig.symfony.com/) template view for Bitty.
 
@@ -12,7 +12,7 @@ A [Twig](https://twig.symfony.com/) template view for Bitty.
 It's best to install using [Composer](https://getcomposer.org/).
 
 ```sh
-$ composer require bittyphp/bitty-twig
+$ composer require bittyphp/view-twig
 ```
 
 ## Setup
