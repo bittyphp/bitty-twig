@@ -1,5 +1,5 @@
 {
-    "name": "bittyphp/bitty-twig",
+    "name": "bittyphp/view-twig",
     "type": "library",
     "description": "A Twig template view for Bitty.",
     "license": "MIT",
@@ -11,7 +11,7 @@
     ],
     "require": {
         "php": ">=7.1.0",
-        "bittyphp/bitty-view": "^2.0",
+        "bittyphp/view": "^2.0",
         "twig/twig": "^1.35 || ^2.0"
     },
     "require-dev": {
