@@ -34,6 +34,10 @@ class TwigTest extends TestCase
     }
 
     /**
+     * @param string $template
+     * @param array $data
+     * @param string $expected
+     *
      * @dataProvider sampleRender
      */
     public function testRender(string $template, array $data, string $expected): void
