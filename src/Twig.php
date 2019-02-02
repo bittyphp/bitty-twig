@@ -37,12 +37,24 @@ class Twig extends AbstractView
     public function __construct($paths, array $options = [])
     {
         $this->loader = new Twig_Loader_Filesystem();
-        foreach ((array) $paths as $namespace => $path) {
-            if (is_string($namespace)) {
-                $this->loader->addPath($path, $namespace);
-            } else {
-                $this->loader->addPath($path);
+
+        if (is_string($paths)) {
+            $this->loader->addPath($paths);
+        } elseif (is_array($paths)) {
+            foreach ($paths as $namespace => $path) {
+                if (is_string($namespace)) {
+                    $this->loader->addPath($path, $namespace);
+                } else {
+                    $this->loader->addPath($path);
+                }
             }
+        } else {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'Path must be a string or an array; %s given.',
+                    gettype($paths)
+                )
+            );
         }
 
         $this->environment = new Twig_Environment($this->loader, $options);

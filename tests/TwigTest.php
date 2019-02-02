@@ -20,17 +20,37 @@ class TwigTest extends TestCase
     {
         parent::setUp();
 
-        $this->fixture = new Twig(
-            [
-                __DIR__.'/templates/',
-                'test' => __DIR__.'/templates/parent/',
-            ]
-        );
+        $this->fixture = new Twig(__DIR__.'/templates/');
     }
 
     public function testInstanceOf(): void
     {
         self::assertInstanceOf(AbstractView::class, $this->fixture);
+    }
+
+    /**
+     * @param mixed $paths
+     * @param string $expected
+     *
+     * @dataProvider sampleInvalidPaths
+     */
+    public function testInvalidPaths($paths, string $expected): void
+    {
+        self::expectException(\InvalidArgumentException::class);
+        self::expectExceptionMessage('Path must be a string or an array; '.$expected.' given.');
+
+        new Twig($paths);
+    }
+
+    public function sampleInvalidPaths(): array
+    {
+        return [
+            'null' => [null, 'NULL'],
+            'object' => [(object) [], 'object'],
+            'false' => [false, 'boolean'],
+            'true' => [true, 'boolean'],
+            'int' => [rand(), 'integer'],
+        ];
     }
 
     /**
@@ -42,6 +62,13 @@ class TwigTest extends TestCase
      */
     public function testRender(string $template, array $data, string $expected): void
     {
+        $this->fixture = new Twig(
+            [
+                __DIR__.'/templates/',
+                'test' => __DIR__.'/templates/parent/',
+            ]
+        );
+
         $actual = $this->fixture->render($template, $data);
 
         self::assertEquals($expected, $actual);
