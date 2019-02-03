@@ -23,12 +23,12 @@ class Twig extends AbstractView
     /**
      * @var Twig_LoaderInterface
      */
-    protected $loader = null;
+    private $loader = null;
 
     /**
      * @var Twig_Environment
      */
-    protected $environment = null;
+    private $environment = null;
 
     /**
      * @param string[]|string $paths

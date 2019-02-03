@@ -14,7 +14,7 @@ class TwigTest extends TestCase
     /**
      * @var Twig
      */
-    protected $fixture = null;
+    private $fixture = null;
 
     protected function setUp(): void
     {
