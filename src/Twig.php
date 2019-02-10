@@ -73,7 +73,7 @@ class Twig extends AbstractView
      *
      * @param string $template Template to render.
      * @param string $block Name of block in the template.
-     * @param array $data Data to pass to template.
+     * @param mixed[] $data Data to pass to template.
      *
      * @return string
      */
