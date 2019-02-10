@@ -55,7 +55,7 @@ class TwigTest extends TestCase
 
     /**
      * @param string $template
-     * @param array $data
+     * @param mixed[] $data
      * @param string $expected
      *
      * @dataProvider sampleRender
